@@ -222,4 +222,18 @@ class AdminController extends Controller
 
     }
 
+    public function makeAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.makeAdmin', compact('user'));
+    }
+
+    public function storeAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->level = 2;
+        $user->save();
+        return redirect(route('admin:user:get',$user->id));
+    }
+
 }

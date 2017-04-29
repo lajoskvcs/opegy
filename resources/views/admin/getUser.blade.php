@@ -10,6 +10,9 @@
                 <div class="control">
                     <a class="button is-small is-danger" href="{{ route('admin:user:delete', $user->id) }}"><i class="fa fa-trash"></i></a>
                 </div>
+                <div class="control">
+                    <a href="{{ route('admin:user:makeAdmin', $user->id) }}" class="button is-small">Adminná teszem!!</a>
+                </div>
             </span>
 
         </div>

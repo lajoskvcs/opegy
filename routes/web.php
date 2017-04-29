@@ -75,3 +75,7 @@ Route::post('/admin/comment/{id}/edit', 'AdminController@updateComment')->name('
 Route::get('/admin/comment/{id}/delete', 'AdminController@deleteComment')->name('admin:comment:delete');
 
 
+
+
+Route::get('/admin/user/{id}/makeAdmin', 'AdminController@makeAdmin')->name('admin:user:makeAdmin');
+Route::post('/admin/user/{id}/makeAdmin', 'AdminController@storeAdmin')->name('admin:user:storeAdmin');
