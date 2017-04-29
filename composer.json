@@ -40,7 +40,7 @@
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize",
 	    "touch database/database.sqlite",
-	    "echo "extension=php_pdo_sqlite.dll" >> /app/.heroku/php/etc/php/php.ini"
+	    "echo \"extension=php_pdo_sqlite.dll\" >> /app/.heroku/php/etc/php/php.ini"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
