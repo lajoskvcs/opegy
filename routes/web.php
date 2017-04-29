@@ -32,6 +32,9 @@ Route::get('/csoportok', 'AppController@groups')->name('group:groups');
 Route::get('/csoportok/{id}', 'AppController@group')->name('group:group');
 
 Route::get('/feladat/{id}', 'SolutionController@index')->name('solution');
+Route::post('/feladat/{id}', 'SolutionController@sendSolution')->name('solution:send');
 
 Route::get('/admin', 'AdminController@index')->name('admin:index');
+
+Route::get('/admin/solution/{id}/markSolved', 'AdminController@markSolved')->name('admin:markSolved');
 

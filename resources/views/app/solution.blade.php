@@ -38,11 +38,11 @@
     <section>
 
         <form action="" method="post">
-            {{csrf_field()}}
+            {{ csrf_field() }}
             <div class="field">
                 <label class="label">Message</label>
                 <p class="control">
-                    <textarea class="textarea" name="solution" placeholder="Textarea"></textarea>
+                    <textarea class="textarea" name="solution" placeholder="Textarea">{{ ($excersise->userSolution()) ? $excersise->userSolution()->solution : null }}</textarea>
                 </p>
             </div>
             <div class="field is-grouped">
