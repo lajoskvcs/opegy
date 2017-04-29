@@ -34,7 +34,7 @@ class CommentController extends Controller
     public function edit($id)
     {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
         $comment = Comment::findOrFail($id);
