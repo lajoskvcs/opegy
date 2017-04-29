@@ -78,7 +78,7 @@ class AppController extends Controller
 
 	public function group( $id ) {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName(), $id) );
         $gamp->sendPageview();
 
 		$excersises = Excersise::where('group_id', $id)->get();

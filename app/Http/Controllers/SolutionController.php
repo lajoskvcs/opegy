@@ -17,7 +17,7 @@ class SolutionController extends Controller
 
 	public function index($id) {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName(), $id) );
         $gamp->sendPageview();
 
 		$excersise = Excersise::findOrFail($id);
