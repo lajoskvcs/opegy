@@ -20,12 +20,37 @@ class AdminController extends Controller
 		return view('admin.index')->with(compact('solutions'));
     }
 
+	public function badSolutions() {
+		$solutions = Solution::where('is_good', 2)->orderby('excersise_id')->get();
+		return view('admin.index')->with(compact('solutions'));
+	}
+
+	public function solvedSolutions() {
+		$solutions = Solution::where('is_good', 1)->orderby('excersise_id')->get();
+		return view('admin.index')->with(compact('solutions'));
+	}
+
 	public function markSolved($id) {
 
-		$solution = Solution::find($id);
-		Solution::
+		$solution = Solution::findOrFail($id);
+
 		$solution->is_good = 1;
 		$solution->save();
 		return \Redirect::back();
     }
+
+    public function markBad($id) {
+
+		$solution = Solution::findOrFail($id);
+
+		$solution->is_good = 2;
+		$solution->save();
+		return \Redirect::back();
+	}
+
+	public function getSolution($id) {
+		$solution = Solution::findOrFail($id);
+		return view('admin.getSolution', compact('solution'));
+
+	}
 }

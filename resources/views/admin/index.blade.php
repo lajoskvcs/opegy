@@ -2,52 +2,39 @@
 
 @section('content')
 
-        <div class="columns">
-            <div class="column is-2">
-                <aside class="menu">
-                    <p class="menu-label">
-                        Feladatok
-                    </p>
-                    <ul class="menu-list">
-                        <li><a class="is-active">Várakozó megoldások</a></li>
-                        <li><a>Hibás megoldások</a></li>
-                        <li><a>Elfogadott megoldások</a></li>
-                    </ul>
-
-                </aside>
-            </div>
-            <div class="column">
+    @foreach($solutions as $solution)
                 <article class="media">
                     <figure class="media-left">
                         <p class="image is-64x64">
-                            <img src="{{ 'https://www.gravatar.com/avatar/' . md5( strtolower( trim( "kovacs.lajos1218@gmail.com" ) ) ) }}">
+                            <img src="{{ 'https://www.gravatar.com/avatar/' . md5( strtolower( trim( $solution->user->email ) ) ) }}">
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
                             <p>
-                                <strong>Kovács Lajos</strong> <small>M6X07X</small> <small>2017-04-26 18:53</small>
+                                <strong>{{ $solution->user->name }}</strong> <small>{{ $solution->user->neptun }}</small> <small>{{ $solution->created_on }}</small>
                                 <br>
-                                <b>Írasd ki az aktuális könyvtár tartalmát.</b>
-                                <p>ls -l</p>
+                                <b>{{ $solution->excersise->excersise }}</b>
+                                <p>{{ $solution->solution }}</p>
                             </p>
                         </div>
                         <nav class="level is-mobile">
                             <div class="level-left">
-                                <a class="level-item">
+                                <a class="level-item" href="{{ route('admin:getSolution', $solution->id) }}">
                                     Megnyitás
                                 </a>
-                                <a class="level-item" href="{{ route('admin:markSolved', 1) }}">
+                                @if($solution->is_good === 0)
+                                <a class="level-item" href="{{ route('admin:markSolved', $solution->id) }}">
                                     Elfogadás
                                 </a>
-                                <a class="level-item">
+                                <a class="level-item" href="{{ route('admin:markBad', $solution->id) }}">
                                     Hibás
                                 </a>
+                                @endif
                             </div>
                         </nav>
                     </div>
                 </article>
-            </div>
-        </div>
+    @endforeach
 
 @endsection

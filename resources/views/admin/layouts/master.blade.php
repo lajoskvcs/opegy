@@ -27,7 +27,33 @@
 
 <section class="section">
     <div class="container">
+        <div class="columns">
+            <div class="column is-2">
+                <aside class="menu">
+                    <p class="menu-label">
+                        Feladatok
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="{{ route('admin:index') }}" class="{{ (Route::currentRouteName() == 'admin:index')? 'is-active':null }}">Várakozó megoldások</a></li>
+                        <li><a href="{{ route('admin:bad') }}" class="{{ (Route::currentRouteName() == 'admin:bad')? 'is-active':null }}">Hibás megoldások</a></li>
+                        <li><a href="{{ route('admin:solved') }}" class="{{ (Route::currentRouteName() == 'admin:solved')? 'is-active':null }}">Elfogadott megoldások</a></li>
+                    </ul>
+                    <p class="menu-label">Csoportok</p>
+                    <ul class="menu-list">
+                        <li><a>Csoport hozzáadása</a></li>
+                        <li><a>Csoport törlése</a></li>
+                    </ul>
+                    <p class="menu-label">Felhasználók</p>
+                    <ul class="menu-list">
+                        <li><a>Felhasználók kezelése</a></li>
+                    </ul>
+
+                </aside>
+            </div>
+            <div class="column">
         @yield('content')
+            </div>
+        </div>
     </div>
 </section>
 </body>

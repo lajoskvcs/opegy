@@ -16,12 +16,12 @@ class SolutionController extends Controller
 	}
 
 	public function index($id) {
-		$excersise = Excersise::find($id);
+		$excersise = Excersise::findOrFail($id);
 		return view('app.solution')->with('excersise', $excersise);
     }
 
 	public function sendSolution($id, Request $request) {
-		$excersise = Excersise::find($id);
+		$excersise = Excersise::findOrFail($id);
 		$solution_input = $request->input('solution');
 		if($excersise->userSolution()) {
 			$solution = $excersise->userSolution();

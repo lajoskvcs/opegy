@@ -35,6 +35,10 @@ Route::get('/feladat/{id}', 'SolutionController@index')->name('solution');
 Route::post('/feladat/{id}', 'SolutionController@sendSolution')->name('solution:send');
 
 Route::get('/admin', 'AdminController@index')->name('admin:index');
+Route::get('/admin/bad', 'AdminController@badSolutions')->name('admin:bad');
+Route::get('/admin/solved', 'AdminController@solvedSolutions')->name('admin:solved');
 
+Route::get('/admin/solution/{id}', 'AdminController@getSolution')->name('admin:getSolution');
 Route::get('/admin/solution/{id}/markSolved', 'AdminController@markSolved')->name('admin:markSolved');
+Route::get('/admin/solution/{id}/markBad', 'AdminController@markBad')->name('admin:markBad');
 
