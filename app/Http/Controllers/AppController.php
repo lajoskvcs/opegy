@@ -18,7 +18,7 @@ class AppController extends Controller
 	public function index() {
 
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
 		$excersises = Excersise::all();
@@ -27,7 +27,7 @@ class AppController extends Controller
 
 	public function waiting() {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
 		$excersises = Excersise::whereHas('solutions', function ($query) {
@@ -38,7 +38,7 @@ class AppController extends Controller
 
 	public function solved() {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
 		$excersises = Excersise::whereHas('solutions', function ($query) {
@@ -49,7 +49,7 @@ class AppController extends Controller
 
 	public function notgood() {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
 		$excersises = Excersise::whereHas('solutions', function ($query) {
@@ -60,7 +60,7 @@ class AppController extends Controller
 
 	public function notsolved() {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
 		$excersises = Excersise::doesntHave('solutions')->get();
@@ -69,7 +69,7 @@ class AppController extends Controller
 
     public function groups() {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
 		$groups = Group::all();
@@ -78,7 +78,7 @@ class AppController extends Controller
 
 	public function group( $id ) {
         $gamp = GAMP::setClientId( Auth::user()->id );
-        $gamp->setDocumentPath( route(Route::currentRouteName()) );
+        $gamp->setDocumentPath( route(\Route::currentRouteName()) );
         $gamp->sendPageview();
 
 		$excersises = Excersise::where('group_id', $id)->get();
