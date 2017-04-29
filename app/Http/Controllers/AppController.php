@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Excersise;
 use App\Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Irazasyed\LaravelGAMP\Facades\GAMP;
 
 class AppController extends Controller
