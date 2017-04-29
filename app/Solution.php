@@ -15,4 +15,9 @@ class Solution extends Model
 	public function excersise() {
 		return $this->belongsTo('App\Excersise');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

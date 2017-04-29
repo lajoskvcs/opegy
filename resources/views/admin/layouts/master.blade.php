@@ -11,6 +11,9 @@
 </head>
 <body>
 <nav class="nav">
+    <div class="nav-left nav-menu">
+        <a href="/" class="nav-item is-tab">Vissza az oldalra</a>
+    </div>
     <div class="nav-right nav-menu">
         @if(Auth::user()->level == 2)
             <a href="/admin/" class="nav-item is-tab">Adminisztráció</a>
@@ -31,21 +34,25 @@
             <div class="column is-2">
                 <aside class="menu">
                     <p class="menu-label">
-                        Feladatok
+                        Megoldások
                     </p>
                     <ul class="menu-list">
                         <li><a href="{{ route('admin:index') }}" class="{{ (Route::currentRouteName() == 'admin:index')? 'is-active':null }}">Várakozó megoldások</a></li>
                         <li><a href="{{ route('admin:bad') }}" class="{{ (Route::currentRouteName() == 'admin:bad')? 'is-active':null }}">Hibás megoldások</a></li>
                         <li><a href="{{ route('admin:solved') }}" class="{{ (Route::currentRouteName() == 'admin:solved')? 'is-active':null }}">Elfogadott megoldások</a></li>
                     </ul>
+                    <p class="menu-label">Feladatok</p>
+                    <ul class="menu-list">
+                        <li><a href="{{ route('admin:excersise:list') }}">Feladatok áttekintése</a></li>
+                        <li><a href="{{ route('admin:excersise:add') }}">Feladat hozzáadása</a></li>
+                    </ul>
                     <p class="menu-label">Csoportok</p>
                     <ul class="menu-list">
-                        <li><a>Csoport hozzáadása</a></li>
-                        <li><a>Csoport törlése</a></li>
+                        <li><a href="{{ route('admin:group:list') }}">Csoportok kezelése</a></li>
                     </ul>
                     <p class="menu-label">Felhasználók</p>
                     <ul class="menu-list">
-                        <li><a>Felhasználók kezelése</a></li>
+                        <li><a href="{{ route('admin:user:list') }}">Felhasználók kezelése</a></li>
                     </ul>
 
                 </aside>

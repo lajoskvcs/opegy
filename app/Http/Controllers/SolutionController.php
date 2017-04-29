@@ -34,8 +34,6 @@ class SolutionController extends Controller
 			$solution->solution = $solution_input;
 			$solution->user_id = Auth::user()->id;
 			$solution->excersise_id = $id;
-			$solution->comment = '';
-			$solution->is_good = 0;
 			$solution->save();
 		}
 

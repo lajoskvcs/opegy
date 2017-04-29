@@ -12,7 +12,7 @@
                     <div class="media-content">
                         <div class="content">
                             <p>
-                                <strong>{{ $solution->user->name }}</strong> <small>{{ $solution->user->neptun }}</small> <small>{{ $solution->created_on }}</small>
+                                <strong>{{ $solution->user->name }}</strong> <small>{{ $solution->user->neptun }}</small> <small>{{ $solution->created_on }}</small> - <small>{{ $solution->comments()->count() }}db <i class="fa fa-comment is-small"></i></small>
                                 <br>
                                 <b>{{ $solution->excersise->excersise }}</b>
                                 <p>{{ $solution->solution }}</p>

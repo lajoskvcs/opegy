@@ -17,8 +17,7 @@ class CreateSolutionTable extends Migration
 			$table->increments('id');
 
 			$table->text('solution');
-			$table->text('comment');
-			$table->boolean('is_good');
+			$table->boolean('is_good')->default(0);
 
 			$table->integer('excersise_id')->unsigned();
 			$table->foreign('excersise_id')->references('id')->on('excersises');
