@@ -12,7 +12,7 @@
 <body>
 <nav class="nav">
     <div class="nav-left nav-menu">
-        <a href="{{ route('excersise:index') }}" class="nav-item is-tab {{ (Route::currentRouteName() != 'group:groups' && Route::currentRouteName() != 'group:group')? 'is-active' : null}}">Feladat csoportok</a>
+        <a href="{{ route('excersise:index') }}" class="nav-item is-tab {{ (Route::currentRouteName() != 'group:groups' && Route::currentRouteName() != 'group:group')? 'is-active' : null}}">Feladatok</a>
         <a href="{{ route('group:groups') }}" class="nav-item is-tab {{ (Route::currentRouteName() == 'group:groups' || Route::currentRouteName() == 'group:group')? 'is-active' : null}}">Feladat csoportok</a>
     </div>
     <div class="nav-right nav-menu">

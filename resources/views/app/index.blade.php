@@ -47,8 +47,8 @@
                             <a href="{{ route('solution',$excersise->id) }}" class="card-footer-item">Megnyit</a>
                             @if($excersise->userSolution())
                                 <span class="card-footer-item">
-                                    <i style="margin-right: 3px;" class="fa fa-comment{{ ($excersise->userSolution()->comment == "")?'-o':'' }} is-small"></i>
-                                    <p class="help">{{ ($excersise->userSolution()->comment == "")?'Nincs':'Van' }} megjegyzés</p>
+                                    <i style="margin-right: 3px;" class="fa fa-comment{{ ($excersise->userSolution()->comments()->where('user_id','!=', Auth::user()->id)->count() == 0)?'-o':'' }} is-small"></i>
+                                    <p class="help">{{ ($excersise->userSolution()->comments()->where('user_id','!=', Auth::user()->id)->count() == 0)?'Nincs':'Van' }} megjegyzés</p>
                                 </span>
                             @endif
                         </footer>

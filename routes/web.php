@@ -34,6 +34,12 @@ Route::get('/csoportok/{id}', 'AppController@group')->name('group:group');
 Route::get('/feladat/{id}', 'SolutionController@index')->name('solution');
 Route::post('/feladat/{id}', 'SolutionController@sendSolution')->name('solution:send');
 
+Route::post('/komment/hozzaad', 'CommentController@store')->name('app:comment:store');
+Route::get('/komment/{id}/szerkeszt', 'CommentController@edit')->name('app:comment:edit');
+Route::post('/komment/{id}/tarol', 'CommentController@update')->name('app:comment:update');
+Route::get('/komment/{id}/torol', 'CommentController@delete')->name('app:comment:delete');
+
+
 Route::get('/admin', 'AdminController@index')->name('admin:index');
 Route::get('/admin/bad', 'AdminController@badSolutions')->name('admin:bad');
 Route::get('/admin/solved', 'AdminController@solvedSolutions')->name('admin:solved');
