@@ -34,7 +34,7 @@ jobs:
 
       - run: composer install -n --prefer-dist
       - run: npm install
-      - run: npm dev
+      - run: npm run dev
 
 
       - save_cache:
